@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Love Proposal</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap');
+
+        body {
+            text-align: center;
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(to right, #ff758c, #ff7eb3);
+            color: white;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            overflow: hidden;
+        }
+        .container {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            max-width: 90%;
+            width: 400px;
+            animation: fadeIn 2s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.9); }
+            to { opacity: 1; transform: scale(1); }
+        }
+        h1 {
+            font-size: 26px;
+            margin-bottom: 10px;
+            font-family: 'Dancing Script', cursive;
+        }
+        .heart {
+            font-size: 60px;
+            color: #ffeb3b;
+            animation: heartbeat 1.5s infinite;
+        }
+        @keyframes heartbeat {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+            100% { transform: scale(1); }
+        }
+        .buttons {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            position: relative;
+        }
+        button {
+            font-size: 18px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s;
+            width: 120px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .yes {
+            background-color: #4CAF50;
+            color: white;
+            font-weight: bold;
+        }
+        .yes:hover {
+            background-color: #45a049;
+        }
+        .no {
+            background-color: #e74c3c;
+            color: white;
+            font-weight: bold;
+        }
+        .love-script {
+            font-size: 16px;
+            background: rgba(255, 255, 255, 0.3);
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 15px;
+            text-align: center;
+        }
+        .floating-hearts {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            pointer-events: none;
+        }
+        .heart-icon {
+            position: absolute;
+            bottom: -10px;
+            color: #ffeb3b;
+            font-size: 20px;
+            animation: floatUp 5s infinite ease-in-out;
+        }
+        @keyframes floatUp {
+            from { transform: translateY(0); opacity: 1; }
+            to { transform: translateY(-100vh); opacity: 0; }
+        }
+    </style>
+    <script>
+        function moveButton() {
+            let btn = document.getElementById("noButton");
+            let x = Math.random() * (window.innerWidth - 150);
+            let y = Math.random() * (window.innerHeight - 100);
+            btn.style.position = "absolute";
+            btn.style.left = `${x}px`;
+            btn.style.top = `${y}px`;
+        }
+        document.addEventListener("DOMContentLoaded", function() {
+            for (let i = 0; i < 15; i++) {
+                let heart = document.createElement("div");
+                heart.innerHTML = "❤️";
+                heart.classList.add("heart-icon");
+                heart.style.left = Math.random() * 100 + "vw";
+                heart.style.animationDuration = Math.random() * 3 + 3 + "s";
+                document.querySelector(".floating-hearts").appendChild(heart);
+            }
+        });
+    </script>
+</head>
+<body>
+    <div class="floating-hearts"></div>
+    <div class="container">
+        <h1>তুমি কি আমার ভালোবাসা গ্রহণ করবে? ❤️</h1>
+        <p class="heart">💖</p>
+        <div class="buttons">
+            <button class="yes" onclick="alert('ইয়াহ! আমি তোমাকে ভালোবাসি! ❤️')">হ্যাঁ</button>
+            <button class="no" id="noButton" onmouseover="moveButton()">না</button>
+        </div>
+        <div class="love-script">
+            <p>তুমি আমার জীবনের সেই আলো, যা অন্ধকারেও পথ দেখায়।</p>
+            <p>তোমার হাসির মাঝে আমি স্বর্গের পরশ পাই, তোমার চোখে হারিয়ে যেতে চাই চিরদিনের জন্য।</p>
+            <p>তোমার দেখা না পেলে, মনে হয় শূন্যতায় ডুবে যাচ্ছি।</p>
+            <p>আমি জানি, এই পৃথিবীর সবচেয়ে সুন্দর জিনিসগুলো দেখা যায় না, কেবল অনুভব করা যায়। ঠিক যেমন আমি প্রতিটি নিঃশ্বাসে তোমাকে অনুভব করি।</p>
+            <p>তুমি কি চিরদিনের জন্য আমার হাতটা ধরবে? তুমি কি আমার হৃদয়ের একমাত্র সম্রাজ্ঞী হবে?</p>
+        </div>
+    </div>
+</body>
+</html>
